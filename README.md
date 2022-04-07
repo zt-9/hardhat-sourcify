@@ -1,3 +1,15 @@
+# hardhat-sourcify
+I just want to sourcify, don't want to use it with hardhat-deploy,
+So I modified it to make it works solely with hardhat buildInfo file
+
+rightnow I only finished a very simple scipt version. works for single contract. it's under branch [dev-sourcify-test](https://github.com/zoey-t/hardhat-sourcify/tree/dev-sourcify-test)
+
+plan to improve it to:
+ 
+    1. simplify the inputs
+    2. support verify multiple contracts 
+    3. add it to extendEnvironment, make it a real plugin
+
 # Hardhat TypeScript plugin boilerplate
 
 This is a sample Hardhat plugin written in TypeScript. Creating a Hardhat plugin
