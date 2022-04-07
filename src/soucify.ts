@@ -75,15 +75,12 @@ export async function submitSourcesToSourcify(
         /// get contract index from output of buildinfo
         let index;
         if (buildinfo) {
-            index = getObjectKeyIndex(buildinfo.output.contracts, config.sourceName)
-            // index = Object.keys(buildinfo.output.contracts).indexOf(config.sourceName)
+            // index = getObjectKeyIndex(buildinfo.output.contracts, config.sourceName)
+            index = Object.keys(buildinfo.output.contracts).indexOf(config.sourceName)
             console.log("chosen contract", index)
         } else {
             // throw error
         }
-        // const deployment = all[name];
-
-        // const {address, metadata: metadataString} = deployment;
         const address = config.address
         const metadataString = JSON.stringify(buildinfo)
 
@@ -122,8 +119,6 @@ export async function submitSourcesToSourcify(
         fileStream.push(null);
         formData.append('files', fileStream, 'metadata.json');
 
-        // console.log(formData);
-
         try {
             const submissionResponse = await axios.post(url, formData, {
                 headers: formData.getHeaders(),
@@ -151,37 +146,19 @@ export async function submitSourcesToSourcify(
     if (config.contractName) {
         await submit(config.contractName);
     } else {
-        // await submit("GreeterA");
-        // for (const name of Object.keys(all)) {
-        //   await submit(name);
-        // }
+       // todo: 
     }
 
 
 
 }
+// submitSourcesToSourcify(hre, {
 
-function getObjectKeyIndex(obj: any, keyToFind: any) {
-    var i = 0, key;
-
-    for (key in obj) {
-        if (key == keyToFind) {
-            return i;
-        }
-
-        i++;
-    }
-
-    return i;
-}
-
-submitSourcesToSourcify(hre, {
-
-    sourceName: "contracts/Greeter.sol", //path ./contracts/Greeter.sol
-    address: "0x122345454646456546654",
-    contractName: "Greeter",
-    chainId: 3
-}).catch((error) => {
-    console.error(error);
-    process.exitCode = 1;
-});
+//     sourceName: "contracts/Greeter.sol", //path ./contracts/Greeter.sol
+//     address: "0x122345454646456546654",
+//     contractName: "Greeter",
+//     chainId: 3
+// }).catch((error) => {
+//     console.error(error);
+//     process.exitCode = 1;
+// });
