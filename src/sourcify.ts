@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
-import chalk from "chalk";
+// import chalk from "chalk";
 import FormData from "form-data";
 import fs from "fs-extra";
 // import hre from "hardhat";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { getFullyQualifiedName } from "hardhat/utils/contract-names";
-import path from "path";
+// import path from "path";
 import { Readable } from "stream";
 
 function log(...args: any[]) {
@@ -14,15 +14,18 @@ function log(...args: any[]) {
 }
 
 function logError(...args: any[]) {
-  console.log(chalk.red(...args));
+  // console.log(chalk.red(...args));
+  console.log(...args);
 }
 
 function logInfo(...args: any[]) {
-  console.log(chalk.yellow(...args));
+  // console.log(chalk.yellow(...args));
+  console.log(...args);
 }
 
 function logSuccess(...args: any[]) {
-  console.log(chalk.green(...args));
+  // console.log(chalk.green(...args));
+  console.log(...args);
 }
 
 function ensureTrailingSlash(s: string): string {
