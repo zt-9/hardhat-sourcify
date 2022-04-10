@@ -1,4 +1,4 @@
-import { extendConfig, extendEnvironment } from "hardhat/config";
+import { extendConfig, extendEnvironment, task } from "hardhat/config";
 import { lazyObject } from "hardhat/plugins";
 import { HardhatConfig, HardhatUserConfig } from "hardhat/types";
 import path from "path";
@@ -7,7 +7,8 @@ import { ExampleHardhatRuntimeEnvironmentField } from "./ExampleHardhatRuntimeEn
 // This import is needed to let the TypeScript compiler know that it should include your type
 // extensions in your npm package's types file.
 import "./type-extensions";
-
+import * as types from 'hardhat/internal/core/params/argumentTypes';
+import {submitSourcesToSourcify} from "./sourcify"
 extendConfig(
   (config: HardhatConfig, userConfig: Readonly<HardhatUserConfig>) => {
     // We apply our default config here. Any other kind of config resolution
@@ -47,3 +48,29 @@ extendEnvironment((hre) => {
   // needed.
   hre.example = lazyObject(() => new ExampleHardhatRuntimeEnvironmentField());
 });
+
+task("sourcify", "verify contract using sourcify")
+.addOptionalParam(
+  'endpoint',
+  'endpoint url for sourcify',
+  undefined,
+  types.string)
+.addParam('sourceName', "e.g contract/Greeter.sol", undefined, types.string)
+.addParam('contractName', 'Name of the contract you want to verify', undefined, types.string)
+.addParam('address', 'address of the contract', undefined, types.string)
+.addParam('chainId', 'the chainId of the network that your contract deployed on', undefined, types.string)
+.setAction(async (args, hre) => {
+  // compile contract first
+  const {endpoint, sourceName, contractName, address, chainId} = args
+  await hre.run('compile')
+  await submitSourcesToSourcify(hre, {
+    endpoint: endpoint,
+    sourceName: sourceName,
+    contractName: contractName,
+    address: address,
+    chainId: chainId
+  }).catch((error) => {
+        console.error(error);
+        process.exitCode = 1;
+    });
+})
