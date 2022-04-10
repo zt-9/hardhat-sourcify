@@ -14,7 +14,7 @@ task name `sourcify` is already used by hardhat-deploy  :/
 
 so I have to change to a new task name. may change to a simpler task name if i can come up with one :D
 ```
-yarn hardhat sourcifySubmit --contract-name "Greeter" --source-name "contracts/Greeter.sol" --address 0xF284AE0a152136D9B8dd10F8281C596CdAffecbc --chain-id 3
+yarn hardhat sourcifySubmit --contract-name "Greeter" --source-name "contracts/Greeter.sol" --address 0xxxxxxxxx --chain-id 3
 ```
 
 use `yarn hardhat help sourcifySubmit` to see the help for the task
