@@ -2,7 +2,7 @@
 I just want to be able to use sourcify, don't want to use it with hardhat-deploy stuff,
 So I modified it to make it works solely with hardhat buildInfo file
 
-rightnow it's a simple version works for single contract. it's under branch [dev-sourcify-test](https://github.com/zoey-t/hardhat-sourcify/tree/dev-sourcify-test)
+rightnow it's a simple version works for single contract.
 
 plan to improve it to:
  
