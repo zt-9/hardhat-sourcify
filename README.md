@@ -2,13 +2,18 @@
 I just want to be able to use sourcify, don't want to use it with hardhat-deploy stuff,
 So I modified it to make it works solely with hardhat buildInfo file
 
-rightnow I only finished a very simple scipt version. works for single contract. it's under branch [dev-sourcify-test](https://github.com/zoey-t/hardhat-sourcify/tree/dev-sourcify-test)
+rightnow it's a simple version works for single contract. it's under branch [dev-sourcify-test](https://github.com/zoey-t/hardhat-sourcify/tree/dev-sourcify-test)
 
 plan to improve it to:
  
     1. simplify the inputs
     2. support verify multiple contracts 
-    3. add it to extendEnvironment, make it a real plugin
+
+## usage
+task name `sourcify` is already used by hardhat-deploy so I have to change to a new task name. may change to a simpler task name if i think of one.
+```
+yarn hardhat sourcifySubmit --contract-name "Greeter" --source-name "contracts/Greeter.sol" --address 0xF284AE0a152136D9B8dd10F8281C596CdAffecbc --chain-id 3
+```
 
 # Hardhat TypeScript plugin boilerplate
 
