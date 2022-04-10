@@ -5,7 +5,7 @@
   "repository": "https://github.com/zoey-t/hardhat-sourcify",
   "author": "zoey-t",
   "license": "MIT",
-  "main": "dist/src/index.js",
+  "main": "dist/src/index.ts",
   "types": "dist/src/index.d.ts",
   "keywords": [
     "ethereum",
