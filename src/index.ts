@@ -49,7 +49,7 @@ import "./type-extensions";
 //   hre.example = lazyObject(() => new ExampleHardhatRuntimeEnvironmentField());
 // });
 
-task("sourcify", "verify contract using sourcify")
+task("sourcifySubmit", "verify contract using sourcify")
   .addOptionalParam(
     "endpoint",
     "endpoint url for sourcify",
