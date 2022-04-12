@@ -13,6 +13,13 @@ plan to improve it to:
 task name `sourcify` is already used by hardhat-deploy  :/ 
 
 so I have to change to a new task name. may change to a simpler task name if i can come up with one :D
+
+Install it with 
+```
+yarn add -D hardhat-sourcify 
+```
+
+example:
 ```
 yarn hardhat sourcifySubmit --contract-name "Greeter" --source-name "contracts/Greeter.sol" --address 0xxxxxxxxx --chain-id 3
 ```
