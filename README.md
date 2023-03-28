@@ -25,3 +25,13 @@ yarn hardhat sourcifySubmit --contract-name "Greeter" --source-name "contracts/G
 ```
 
 use `yarn hardhat help sourcifySubmit` to see the help for the task
+
+## history
+
+**0.0.2**
+
+- fix TypeScript issues https://github.com/microsoft/TypeScript/issues/51567
+
+**0.0.1**
+
+- first version
